@@ -14,7 +14,7 @@
                     class="staff_row"
                 >
                     <div class="staff_row__title">
-                        {{ staffRow.role.toUpperCase() }} ({{ getRoleTypeName(staffRow.roleType).toUpperCase() }} ROLE)
+                        {{ staffRow.role.toUpperCase() }}
                         <hr class="line--red line--no-space">
                     </div>
                     <div class="staff_row_members">
@@ -27,7 +27,7 @@
                         >
                             <div 
                                 class="staff_row_members_card__headshot"
-                                :style="{ 'backgroundImage': `url(${staffMember.avatar})` }"
+                                :style="{ 'backgroundImage': `url(https://a.ppy.sh/${staffMember.osuID})` }"
                             />
                             <div class="staff_row_members_card__line" />
                             <div class="staff_row_members_card_details">
@@ -39,12 +39,6 @@
                                     class="staff_row_members_card_details__nationality"
                                     :style="{ 'backgroundImage': `url(https://osu.ppy.sh/images/flags/${staffMember.country}.png)` }"
                                 />
-                                <div 
-                                    v-else
-                                    class="staff_row_members_card_details__not_logged_in"
-                                >
-                                    {{ $t('open.staff.notLoggedIn') }}
-                                </div>
                             </div>
                         </a>
                     </div>
@@ -94,7 +88,7 @@ export default class Staff extends Vue {
     @openModule.State staffList!: StaffList[] | null;
 
     async mounted () {
-        await this.$store.dispatch("open/setStaffList", this.tournament?.ID);
+        await this.$store.dispatch("open/setStaffList");
     }
 
     getRoleTypeName (roleType: TournamentRoleType): string {

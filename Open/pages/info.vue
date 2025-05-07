@@ -22,17 +22,10 @@
                 <div class="info_desc__buttons">
                     <ContentButton 
                         class="content_button--red info_desc_button content_button--margin"
-                        link="https://paypal.me/corsaceofficial"
+                        link="https://ko-fi.com/rescup"
                         external
                     >
                         {{ $t('open.info.donateToCorsace') }}
-                    </ContentButton>
-                    <ContentButton 
-                        class="content_button--red info_desc_button content_button--margin"
-                        link="http://momokai.com/corsace"
-                        external
-                    >
-                        {{ $t('open.info.supportViaSponsorship') }}
                     </ContentButton>
                 </div>
                 <OpenTitle
@@ -78,11 +71,6 @@
                         class="info_desc__list"
                         v-html="$t('open.info.qualifiersProceduresText')"
                     />
-                    <h2>{{ $t('open.info.seeding') }}</h2>
-                    <ul
-                        class="info_desc__list"
-                        v-html="$t('open.info.seedingText')"
-                    />
                 </div>
                 <OpenTitle
                     class="info_section_header"
@@ -97,46 +85,41 @@
                             class="info_desc__list"
                             v-html="$t('open.info.tournamentStructureText.w1')"
                         />
-                        <img
-                            class="info_desc__list_wrapper__image info_desc__list_wrapper__image--small"
-                            src="../../Assets/img/site/open/info/w1.png"
-                        >
                     </div>
-                    <hr class="line--red line--bottom-space">
                     <h2>{{ $t('open.info.tournamentStructureText.w2Header') }}</h2>
                     <div class="info_desc__list_wrapper">
                         <ul
                             class="info_desc__list"
                             v-html="$t('open.info.tournamentStructureText.w2')"
                         />
-                        <img 
-                            class="info_desc__list_wrapper__image"
-                            src="../../Assets/img/site/open/info/w2.png"
-                        >
                     </div>
-                    <hr class="line--red line--bottom-space">
                     <h2>{{ $t('open.info.tournamentStructureText.w3Header') }}</h2>
                     <div class="info_desc__list_wrapper">
                         <ul
                             class="info_desc__list"
                             v-html="$t('open.info.tournamentStructureText.w3')"
                         />
-                        <img 
-                            class="info_desc__list_wrapper__image info_desc__list_wrapper__image--large"
-                            src="../../Assets/img/site/open/info/w3.png"
-                        >
                     </div>
-                    <hr class="line--red line--bottom-space">
                     <h2>{{ $t('open.info.tournamentStructureText.w4Header') }}</h2>
-                    <div class="info_desc__list_wrapper">     
+                    <div class="info_desc__list_wrapper">
                         <ul
                             class="info_desc__list"
                             v-html="$t('open.info.tournamentStructureText.w4')"
                         />
-                        <img 
-                            class="info_desc__list_wrapper__image info_desc__list_wrapper__image--large"
-                            src="../../Assets/img/site/open/info/w4.png"
-                        >
+                    </div>
+                    <h2>{{ $t('open.info.tournamentStructureText.w5Header') }}</h2>
+                    <div class="info_desc__list_wrapper">
+                        <ul
+                            class="info_desc__list"
+                            v-html="$t('open.info.tournamentStructureText.w5')"
+                        />
+                    </div>
+                    <h2>{{ $t('open.info.tournamentStructureText.w6Header') }}</h2>
+                    <div class="info_desc__list_wrapper">
+                        <ul
+                            class="info_desc__list"
+                            v-html="$t('open.info.tournamentStructureText.w6')"
+                        />
                     </div>
                 </div>
                 <OpenTitle
@@ -633,7 +616,7 @@ export default class Info extends Vue {
             margin: 0;
 
             & li strong {
-                color: $open-red;
+                color: $yellow;
                 font-weight: 600;
             }
 
@@ -719,7 +702,7 @@ export default class Info extends Vue {
 
      &_stage_title {
         position: relative;
-        font-family: $font-zurich;
+        font-family: $font-cinzel;
         font-size: $font-xxxl;
 
         &__status {

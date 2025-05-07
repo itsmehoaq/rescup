@@ -158,8 +158,8 @@ export const getters: GetterTree<OpenState, OpenState> = {
 };
 
 export const actions: ActionTree<OpenState, OpenState> = {
-    async setTournament ({ commit, dispatch }, year) {
-        const { data } = await this.$axios.get<{ tournament: Tournament }>(`/api/tournament/open/${year}`);
+    async setTournament ({ commit, dispatch }) {
+        const { data } = await this.$axios.get<{ tournament: Tournament }>(`/api/tournament/10`);
 
         if (data.success) {
             commit("setTournament", data.tournament);
@@ -232,11 +232,17 @@ export const actions: ActionTree<OpenState, OpenState> = {
         if (data.success)
             commit("setStaffInfo", data.info);
     },
-    async setStaffList ({ commit }, tournamentID) {
-        const { data } = await this.$axios.get<{ staff: StaffList[] }>(`/api/tournament/${tournamentID}/staff`);
+    async setStaffList ({ commit }) {
+        // const { data } = await this.$axios.get<{ staff: StaffList[] }>(`/api/tournament/${tournamentID}/staff`);
+        const response = await fetch("https://static.rescup.xyz/staff.json");
 
-        if (data.success)
-            commit("setStaffList", data.staff);
+        if (!response.ok) {
+            return;
+        }
+        const staff = await response.json();
+
+        if (staff)
+            commit("setStaffList", staff);
     },
     async setInitialData ({ dispatch }, year) {
         await Promise.all([
