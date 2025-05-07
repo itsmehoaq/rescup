@@ -22,12 +22,12 @@
                             v-for="(staffMember, j) in staffRow.users"
                             :key="j"
                             class="staff_row_members_card"
-                            :style="{ 'cursor': staffMember.osuID ? 'pointer' : 'default' }"
-                            :href="staffMember.osuID ? `https://osu.ppy.sh/users/${staffMember.osuID}` : undefined"
+                            :style="{ 'cursor': 'pointer' }"
+                            :href="staffMember.url"
                         >
                             <div 
                                 class="staff_row_members_card__headshot"
-                                :style="{ 'backgroundImage': `url(https://a.ppy.sh/${staffMember.osuID})` }"
+                                :style="{ 'backgroundImage': `url(${staffMember.avatar})` }"
                             />
                             <div class="staff_row_members_card__line" />
                             <div class="staff_row_members_card_details">
