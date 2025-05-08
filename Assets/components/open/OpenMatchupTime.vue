@@ -41,7 +41,7 @@ export default class OpenMatchupTime extends Vue {
     justify-content: center;
     align-items: center;
     white-space: nowrap;
-    font-family: $font-univers;
+    font-family: $font-redhatdisplay;
 
     &__time {
         font-size: calc(1.25 * $font-xxxl);

@@ -87,7 +87,7 @@ export default class OpenFrontPageButton extends Vue {
         &--xl {
             color: $open-dark;
             position: absolute;
-            font-family: $font-zurich;
+            font-family: $font-cinzel;
             font-size: 80.77px;
             line-height: 38.7px;
             letter-spacing: -0.07em;

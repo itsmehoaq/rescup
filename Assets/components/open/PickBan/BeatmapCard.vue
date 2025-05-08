@@ -109,7 +109,7 @@ export default class BeatmapCard extends Vue {
     &__slot {
         font-size: 40px;
         font-weight: 700;
-        font-family: $font-univers;
+        font-family: $font-redhatdisplay;
         margin: 0 auto;
 
         &--nm {
@@ -189,7 +189,7 @@ export default class BeatmapCard extends Vue {
     }
 
     &__state-label {
-        font-family: $font-univers;
+        font-family: $font-redhatdisplay;
         font-size: 36px;
         font-weight: 500;
         letter-spacing: 0.095em;
@@ -231,7 +231,7 @@ export default class BeatmapCard extends Vue {
     }
 
     &__win-label {
-        font-family: $font-univers;
+        font-family: $font-redhatdisplay;
         font-size: 40px;
         font-weight: 500;
         letter-spacing: 0.16em;

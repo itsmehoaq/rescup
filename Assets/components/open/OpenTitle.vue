@@ -37,7 +37,7 @@ export default class OpenTitle extends Vue {
         flex-wrap: wrap;
         
         &__text {
-            font-family: $font-zurich;
+            font-family: $font-cinzel;
             font-size: $font-title;
             text-transform: uppercase;
         }

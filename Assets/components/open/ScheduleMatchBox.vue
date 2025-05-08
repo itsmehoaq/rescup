@@ -350,7 +350,7 @@ export default class ScheduleMatchBox extends Vue {
 
                     & option {
                         font-size: $font-xsm;
-                        font-family: $font-univers;
+                        font-family: $font-redhatdisplay;
                         font-weight: bold;
                         padding: 0 2px;
                         background-color: $open-red;

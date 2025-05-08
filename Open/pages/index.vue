@@ -1,16 +1,16 @@
 <template>
     <div class="index">
-        <video 
-            autoplay
-            muted
-            loop
-            class="index__video"
-        >
-            <source 
-                src="https://static-assets.corsace.io/open-2023/landing-page-background-video.webm"
-                type="video/mp4"
-            >
-        </video>
+<!--        <video -->
+<!--            autoplay-->
+<!--            muted-->
+<!--            loop-->
+<!--            class="index__video"-->
+<!--        >-->
+<!--            <source -->
+<!--                src="https://static-assets.corsace.io/open-2023/landing-page-background-video.webm"-->
+<!--                type="video/mp4"-->
+<!--            >-->
+<!--        </video>-->
 
         <div class="index__content">
             <div class="index__banner">
@@ -75,16 +75,10 @@
                         <hr class="line--red line--no-space">
                         <div class="index_portal__image index_portal__image--row">
                             <a 
-                                href="http://momokai.com/corsace" 
+                                href="http://wooting.io"
                                 target="_blank"
                             >
-                                <img src="../../Assets/img/partners/momokai.png">
-                            </a>
-                            <a 
-                                href="http://corsace.io"
-                                target="_blank"
-                            >
-                                <img src="../../Assets/img/corsace-full.png">
+                                <img src="../../Assets/img/partners/wooting.png">
                             </a>
                         </div>
                     </div>                

@@ -46,7 +46,7 @@ export default class Tooltip extends Vue {
 
         &--open {
             color: $open-red;
-            font-family: $font-univers;
+            font-family: $font-redhatdisplay;
             font-stretch: condensed;
             background-color: white;
             &::after {

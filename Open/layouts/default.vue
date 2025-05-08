@@ -10,7 +10,7 @@
         >
             <a href="/">          
                 <img
-                    src="../../Assets/img/site/open/logo.png"
+                    src="../../Assets/img/site/open/navlogo.svg"
                     class="header__logo"
                     :class="`header__logo--${viewTheme}`"
                 >
@@ -94,23 +94,6 @@
         
         <the-footer class="footer">
             <div class="socials">
-                <Tooltip>
-                    <template #icon>
-                        <a 
-                            class="socials__link" 
-                            href="https://corsace.io"
-                            target="_blank"
-                        >
-                            <img
-                                class="socials__icon"
-                                :class="`socials__icon--${viewTheme}`"
-                                src="../../Assets/img/corsace.png"
-                                alt=""
-                            >
-                        </a>
-                    </template>
-                    {{ $t("open.footer.corsace") }}
-                </Tooltip>
                 <Tooltip>
                     <template #icon>
                         <a
@@ -300,7 +283,7 @@ export default class Default extends Mixins(CentrifugeMixin) {
 
 .header {
     border-bottom: 1px solid $open-red;
-    background-image: url("../../Assets/img/site/open/checkers.svg"), linear-gradient(0deg, white, white);
+    background-image: url("../../Assets/img/site/open/navlogo.svg"), linear-gradient(0deg, white, white);
     background-repeat: no-repeat;
     background-position: left center;
     width: 100vw;

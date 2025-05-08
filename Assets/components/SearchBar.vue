@@ -189,7 +189,7 @@ export default class SearchBar extends Vue {
 
         &--open {
             color: $white;
-            font-family: $font-univers;
+            font-family: $font-redhatdisplay;
             font-style: normal;
             text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 

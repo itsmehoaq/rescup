@@ -121,7 +121,7 @@ export default class MapToolTip extends Vue {
             gap: 5px;
             justify-content: flex-end;
             align-items: center;
-            font-family: $font-univers;
+            font-family: $font-redhatdisplay;
             font-size: $font-xsm;
 
             &--left {

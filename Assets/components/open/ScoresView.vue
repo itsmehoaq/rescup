@@ -356,7 +356,7 @@ export default class ScoresView extends Vue {
             cursor: pointer;
             width: auto;
             text-decoration: none;
-            font-family: $font-univers;
+            font-family: $font-redhatdisplay;
             font-size: $font-base;
             
             &:hover, &--active {
@@ -430,7 +430,7 @@ export default class ScoresView extends Vue {
     }
 
     &__table {
-        font-family: $font-univers;
+        font-family: $font-redhatdisplay;
         font-size: $font-sm;
         font-weight: bold;
         width: 100%;

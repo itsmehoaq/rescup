@@ -70,7 +70,7 @@ export default class TeamToolTip extends Vue {
 
     pointer-events: all;
 
-    font-family: $font-univers;
+    font-family: $font-redhatdisplay;
 
     &__top_left {
         position: absolute;
