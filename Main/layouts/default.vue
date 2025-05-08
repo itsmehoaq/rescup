@@ -3,16 +3,16 @@
         <the-header
             class="main__header"
         >
-            <a 
+            <a
                 class="header-nav"
                 href="/"
             >
-                <div 
+                <div
                     class="header-nav__brand-container"
                     :class="`header-nav__brand-container--${viewTheme}`"
                 >
-                    <div 
-                        class="header-nav__brand" 
+                    <div
+                        class="header-nav__brand"
                         :class="`header-nav__brand--${viewTheme}`"
                     />
                 </div>
@@ -25,69 +25,127 @@
             </a>
         </the-header>
 
-        <nuxt 
-            class="main" 
+        <nuxt
+            class="main"
             :class="`main--${viewTheme}`"
         />
-        
+
         <the-footer class="main__footer">
-            <div 
+            <div
                 class="socials"
                 :class="`socials--${viewTheme}`"
             >
                 <a
+                    class="socials__link"
                     href="https://twitter.com/corsace_"
                     target="_blank"
                 >
                     <img
                         class="socials__icon"
-                        src="../../Assets/img/social/twitter.png"
+                        :class="`socials__icon--${viewTheme}`"
+                        src="../../Assets/img/social/x.svg"
                         alt=""
                     >
                 </a>
                 <a
-                    href="https://discord.gg/Z6vEMsr"
+                    class="socials__link"
+                    href="https://bsky.app/profile/rescup.bsky.social"
                     target="_blank"
                 >
                     <img
                         class="socials__icon"
-                        src="../../Assets/img/social/discord.png"
+                        :class="`socials__icon--${viewTheme}`"
+                        src="../../Assets/img/social/bluesky.svg"
                         alt=""
                     >
                 </a>
                 <a
+                    class="socials__link"
+                    href="https://discord.gg/UNzyfgGfeu"
+                    target="_blank"
+                >
+                    <img
+                        class="socials__icon"
+                        :class="`socials__icon--${viewTheme}`"
+                        src="../../Assets/img/social/discord.svg"
+                        alt=""
+                    >
+                </a>
+                <a
+                    class="socials__link"
                     href="https://www.twitch.tv/corsace"
                     target="_blank"
                 >
                     <img
                         class="socials__icon"
-                        src="../../Assets/img/social/twitch.png"
+                        :class="`socials__icon--${viewTheme}`"
+                        src="../../Assets/img/social/twitch.svg"
                         alt=""
                     >
                 </a>
                 <a
+                    class="socials__link"
                     href="https://youtube.com/corsace"
                     target="_blank"
                 >
                     <img
                         class="socials__icon"
-                        src="../../Assets/img/social/youtube.png"
+                        :class="`socials__icon--${viewTheme}`"
+                        src="../../Assets/img/social/youtube.svg"
                         alt=""
                     >
                 </a>
                 <a
-                    href="https://github.com/corsace/corsace"
+                    class="socials__link"
+                    href="https://osu.ppy.sh/community/forums/topics/1945196?n=1"
                     target="_blank"
                 >
                     <img
                         class="socials__icon"
-                        src="../../Assets/img/social/github.png"
+                        :class="`socials__icon--${viewTheme}`"
+                        src="../../Assets/img/social/osu.svg"
+                        alt=""
+                    >
+                </a>
+                <a
+                    class="socials__link"
+                    href="https://osu.ppy.sh/community/forums/topics/1945196?n=1"
+                    target="_blank"
+                >
+                    <img
+                        class="socials__icon"
+                        :class="`socials__icon--${viewTheme}`"
+                        src="../../Assets/img/social/challonge.svg"
+                        alt=""
+                    >
+                </a>
+                <a
+                    class="socials__link"
+                    href="https://docs.google.com/spreadsheets/d/1f2538nh9McAii15EJkHU18fi65ICQihxsmvTK-qhA0w"
+                    target="_blank"
+                >
+                    <img
+                        class="socials__icon"
+                        :class="`socials__icon--${viewTheme}`"
+                        src="../../Assets/img/social/googlesheets.svg"
+                        alt=""
+                    >
+                </a>
+                <a
+                    class="socials__link"
+                    href="https://ko-fi.com/rescup"
+                    target="_blank"
+                >
+                    <img
+                        class="socials__icon"
+                        :class="`socials__icon--${viewTheme}`"
+                        src="../../Assets/img/social/kofi.svg"
                         alt=""
                     >
                 </a>
             </div>
 
-            <div 
+            <div
                 class="kaetwo"
                 :class="`kaetwo--${viewTheme}`"
             >
@@ -97,7 +155,7 @@
                     href="https://twitter.com/kkaetwo"
                 >
                     <img
-                        class="kaetwo__image" 
+                        class="kaetwo__image"
                         :class="`kaetwo__image--${viewTheme}`"
                         src="../../Assets/img/partners/kaetwo.png"
                     >
@@ -125,10 +183,10 @@ export default class Default extends Vue {
 
     @State viewTheme!: "light" | "dark";
 
-    async mounted () {
+    async mounted() {
         await this.$store.dispatch("setViewTheme", "dark");
     }
-    
+
 }
 </script>
 
@@ -148,6 +206,7 @@ export default class Default extends Vue {
     &--light {
         background-color: $white;
     }
+
     &--dark {
         background-color: $darker-gray;
     }
@@ -165,9 +224,11 @@ export default class Default extends Vue {
                 width: 55px;
                 height: 55px;
             }
+
             &--light {
                 background-image: linear-gradient(to top, #d93044, rgba(231, 95, 120, 0.82));
             }
+
             &--dark {
                 background-image: linear-gradient(to top, rgba(244, 182, 193, 0.82), #e98792);
             }
@@ -177,6 +238,7 @@ export default class Default extends Vue {
             @include breakpoint(mobile) {
                 width: 100px;
             }
+
             &--light {
                 filter: invert(1);
             }
@@ -186,6 +248,7 @@ export default class Default extends Vue {
         height: 100%;
         background-size: contain;
         background-image: url('../../Assets/img/corsace.png');
+
         &--light {
             filter: invert(1);
         }
@@ -203,9 +266,11 @@ export default class Default extends Vue {
         width: auto;
         height: 30px;
     }
+
     &--light {
         filter: invert(1);
     }
+
     &--dark {
         color: $gray;
     }
@@ -215,9 +280,11 @@ export default class Default extends Vue {
     &--light {
         color: $dark;
     }
+
     &--dark {
         color: $gray;
     }
+
     font-size: 1rem;
     display: flex;
     align-items: center;
@@ -234,9 +301,11 @@ export default class Default extends Vue {
     &__image {
         height: 20px;
         padding: 0 5px;
+
         &--light {
             filter: invert(1);
         }
+
         &--dark {
             color: $gray;
         }
