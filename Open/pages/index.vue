@@ -7,7 +7,7 @@
             class="index__video"
         >
             <source 
-                src="https://static-assets.corsace.io/open-2023/landing-page-background-video.webm"
+                src="https://static.rescup.xyz/video/rc25_bg.webm"
                 type="video/mp4"
             >
         </video>
@@ -167,7 +167,7 @@ export default class Default extends Vue {
         object-fit: cover;
         height: 100%;
         width: 100%;
-        mask-image: linear-gradient(180deg, rgba(19,19,19,1) 0%, rgba(19,19,19,0.75) 5%, rgba(19,19,19,0.5) 10%, rgba(19,19,19,0.25) 20%, rgba(19,19,19,0) 55%);
+        mask-image: linear-gradient(180deg, #131313 0%, rgba(19, 19, 19, 0.075) 90%, rgba(19, 19, 19, 0) 100%);
     }
 
     &__content {
