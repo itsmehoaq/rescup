@@ -1,13 +1,15 @@
 <template>
-    <div 
+    <div
         class="footer"
         :class="`footer--${viewTheme} footer--${site}`"
     >
-        <slot />
-        
-        <language-switcher />
+        <slot/>
 
-        <theme-switcher 
+        <language-switcher 
+            v-if="site !== 'open'"
+        />
+
+        <theme-switcher
             v-if="site !== 'open'"
         />
     </div>
@@ -32,7 +34,7 @@ export default class TheFooter extends Vue {
 
     isSmall = false;
 
-    mounted () {
+    mounted() {
         if (process.client) {
             this.isSmall = window.innerWidth < 576;
             window.addEventListener("resize", () => {
@@ -52,14 +54,17 @@ export default class TheFooter extends Vue {
         background-color: white;
         color: black;
     }
+
     &--dark {
         background-color: $dark;
         color: white;
     }
+
     &--open {
         border-top: 1px solid white;
         background-color: $open-red;
     }
+
     bottom: 0;
 
     @include breakpoint(mobile) {

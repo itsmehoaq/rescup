@@ -55,10 +55,9 @@ export default class Tooltip extends Vue {
         }
 
         opacity: 0;
-        width: 50px;
         color: #fff;
         text-align: center;
-        padding: 5px 0px;
+        padding: 8px 12px;
         font-size: 11px;
         font-style: normal;
         font-family: $font-swis721;

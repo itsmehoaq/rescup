@@ -119,7 +119,7 @@
             >
                 <img 
                     class="schedule_matchbox_links__button__twitch"
-                    src="../../img/social/twitch-light.svg"
+                    src="../../img/social/twitch.svg"
                 >
             </IconButton>
             <div 

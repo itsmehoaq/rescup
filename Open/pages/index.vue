@@ -1,17 +1,16 @@
 <template>
     <div class="index">
-<!--        <video -->
-<!--            autoplay-->
-<!--            muted-->
-<!--            loop-->
-<!--            class="index__video"-->
-<!--        >-->
-<!--            <source -->
-<!--                src="https://static-assets.corsace.io/open-2023/landing-page-background-video.webm"-->
-<!--                type="video/mp4"-->
-<!--            >-->
-<!--        </video>-->
-
+        <video 
+            autoplay
+            muted
+            loop
+            class="index__video"
+        >
+            <source 
+                src="https://static-assets.corsace.io/open-2023/landing-page-background-video.webm"
+                type="video/mp4"
+            >
+        </video>
         <div class="index__content">
             <div class="index__banner">
                 <img src="../../Assets/img/site/open/banner.png">
@@ -26,21 +25,13 @@
                         <hr class="line--red line--no-space">
                         <ul class="index_schedule__content">
                             <li 
-                                v-if="tournament"
+                                v-for="time in tournament?.schedule || []"
+                                :key="time.event"
                                 class="index_schedule__group"
                             >
-                                <span class="index_schedule__event"> {{ $t('open.home.registrations') }} </span>
+                                <span class="index_schedule__event"> {{ time.event }} </span>
                                 <span class="index_schedule__line" />
-                                <span class="index_schedule__time">{{ new Date(tournament.registrations.start || "").toLocaleString('en-US', optionsRange) }} - {{ new Date(tournament.registrations.end || "").toLocaleString('en-US', optionsRange) }}</span>
-                            </li>
-                            <li 
-                                v-for="round in tournament?.stages || []"
-                                :key="round.name"
-                                class="index_schedule__group"
-                            >
-                                <span class="index_schedule__event"> {{ $t(`open.stages.${round.name.toLowerCase()}`) }} </span>
-                                <span class="index_schedule__line" />
-                                <span class="index_schedule__time">{{ new Date(round.timespan.start || "").toLocaleString('en-US', optionsRange) }} - {{ new Date(round.timespan.end || "").toLocaleString('en-US', optionsRange) }}</span>
+                                <span class="index_schedule__time">{{ new Date(time.start || "").toLocaleString('en-US', optionsRange) }} - {{ new Date(time.end || "").toLocaleString('en-US', optionsRange) }}</span>
                             </li>
                         </ul>
                     </div>
@@ -194,7 +185,6 @@ export default class Default extends Vue {
     }
 
     &_portal {
-        margin-top: 100px;
         width: 80vw;
         display: flex;
         flex-direction: row;
@@ -207,7 +197,7 @@ export default class Default extends Vue {
         &__image {
             &--row {
                 display: flex;
-                justify-content: space-between;
+                justify-content: center;
                 padding: 25px 50px;
             }
 

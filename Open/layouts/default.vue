@@ -1,6 +1,6 @@
 <template>
     <div class="layout layout--open">
-        <DevBanner 
+        <DevBanner
             v-if="devBanner"
             @close="hideBanner()"
         />
@@ -8,7 +8,7 @@
             class="header"
             :notif="teamInvites && teamInvites.length > 0"
         >
-            <a href="/">          
+            <a href="/">
                 <img
                     src="../../Assets/img/site/open/navlogo.svg"
                     class="header__logo"
@@ -30,32 +30,32 @@
                     {{ $t("open.navbar.info") }}
                 </NuxtLink>
                 <NuxtLink
-                    to="/qualifiers" 
+                    to="/qualifiers"
                     class="header__nav-item"
                 >
                     {{ $t("open.navbar.qualifiers") }}
                 </NuxtLink>
                 <NuxtLink
-                    to="/teams" 
+                    to="/teams"
                     class="header__nav-item"
                 >
                     {{ $t("open.navbar.teams") }}
                 </NuxtLink>
                 <NuxtLink
-                    to="/schedule" 
+                    to="/schedule"
                     class="header__nav-item"
                 >
                     {{ $t("open.navbar.schedule") }}
                 </NuxtLink>
 
                 <NuxtLink
-                    to="/mappool" 
+                    to="/mappool"
                     class="header__nav-item"
                 >
                     {{ $t("open.navbar.mappool") }}
                 </NuxtLink>
                 <NuxtLink
-                    to="/staff" 
+                    to="/staff"
                     class="header__nav-item"
                 >
                     {{ $t("open.navbar.staff") }}
@@ -86,12 +86,12 @@
                 </NuxtLink>
             </template>
         </the-header>
-        
-        <nuxt 
-            class="main" 
+
+        <nuxt
+            class="main"
             :class="`main--${viewTheme}`"
         />
-        
+
         <the-footer class="footer">
             <div class="socials">
                 <Tooltip>
@@ -104,7 +104,7 @@
                             <img
                                 class="socials__icon"
                                 :class="`socials__icon--${viewTheme}`"
-                                src="../../Assets/img/social/twitter.png"
+                                src="../../Assets/img/social/x.svg"
                                 alt=""
                             >
                         </a>
@@ -115,19 +115,54 @@
                     <template #icon>
                         <a
                             class="socials__link"
-                            href="https://discord.gg/Z6vEMsr"
+                            href="https://bsky.app/profile/rescup.bsky.social"
                             target="_blank"
                         >
                             <img
                                 class="socials__icon"
                                 :class="`socials__icon--${viewTheme}`"
-                                src="../../Assets/img/social/discord.png"
+                                src="../../Assets/img/social/bluesky.svg"
+                                alt=""
+                            >
+                        </a>
+                    </template>
+                    {{ $t("open.footer.blueSky") }}
+                </Tooltip>
+                <Tooltip>
+                    <template #icon>
+                        <a
+                            class="socials__link"
+                            href="https://discord.gg/UNzyfgGfeu"
+                            target="_blank"
+                        >
+                            <img
+                                class="socials__icon"
+                                :class="`socials__icon--${viewTheme}`"
+                                src="../../Assets/img/social/discord.svg"
                                 alt=""
                             >
                         </a>
                     </template>
                     {{ $t("open.footer.discord") }}
                 </Tooltip>
+                <!--                <Tooltip>-->
+                <!--                    <template #icon>-->
+                <!--                        <a-->
+                <!--                            class="socials__link"-->
+                <!--                            href="https://discord.gg/Z6vEMsr"-->
+                <!--                            target="_blank"-->
+                <!--                        >-->
+                <!--                            <img-->
+                <!--                                class="socials__icon"-->
+                <!--                                :class="`socials__icon&#45;&#45;${viewTheme}`"-->
+                <!--                                src="../../Assets/img/social/discord.svg"-->
+                <!--                                alt=""-->
+                <!--                            >-->
+                <!--                        </a>-->
+                <!--                    </template>-->
+                <!--                    {{ $t("open.footer.discord") }}-->
+                <!--                </Tooltip>-->
+
                 <Tooltip>
                     <template #icon>
                         <a
@@ -138,7 +173,7 @@
                             <img
                                 class="socials__icon"
                                 :class="`socials__icon--${viewTheme}`"
-                                src="../../Assets/img/social/twitch.png"
+                                src="../../Assets/img/social/twitch.svg"
                                 alt=""
                             >
                         </a>
@@ -155,7 +190,7 @@
                             <img
                                 class="socials__icon"
                                 :class="`socials__icon--${viewTheme}`"
-                                src="../../Assets/img/social/youtube.png"
+                                src="../../Assets/img/social/youtube.svg"
                                 alt=""
                             >
                         </a>
@@ -166,18 +201,35 @@
                     <template #icon>
                         <a
                             class="socials__link"
-                            href="https://github.com/corsace/corsace"
+                            href="https://osu.ppy.sh/community/forums/topics/1945196?n=1"
                             target="_blank"
                         >
                             <img
                                 class="socials__icon"
                                 :class="`socials__icon--${viewTheme}`"
-                                src="../../Assets/img/social/github.png"
+                                src="../../Assets/img/social/osu.svg"
                                 alt=""
                             >
                         </a>
                     </template>
-                    {{ $t("open.footer.github") }}
+                    {{ $t("open.footer.forumPost") }}
+                </Tooltip> 
+                <Tooltip>
+                    <template #icon>
+                        <a
+                            class="socials__link"
+                            href="https://osu.ppy.sh/community/forums/topics/1945196?n=1"
+                            target="_blank"
+                        >
+                            <img
+                                class="socials__icon"
+                                :class="`socials__icon--${viewTheme}`"
+                                src="../../Assets/img/social/challonge.svg"
+                                alt=""
+                            >
+                        </a>
+                    </template>
+                    {{ $t("open.footer.challonge") }}
                 </Tooltip>
                 <Tooltip>
                     <template #icon>
@@ -189,18 +241,31 @@
                             <img
                                 class="socials__icon"
                                 :class="`socials__icon--${viewTheme}`"
-                                src="../../Assets/img/social/sheets.png"
+                                src="../../Assets/img/social/googlesheets.svg"
                                 alt=""
                             >
                         </a>
                     </template>
                     {{ $t("open.footer.sheet") }}
                 </Tooltip>
+                <Tooltip>
+                    <template #icon>
+                        <a
+                            class="socials__link"
+                            href="https://ko-fi.com/rescup"
+                            target="_blank"
+                        >
+                            <img
+                                class="socials__icon"
+                                :class="`socials__icon--${viewTheme}`"
+                                src="../../Assets/img/social/kofi.svg"
+                                alt=""
+                            >
+                        </a>
+                    </template>
+                    {{ $t("open.footer.kofi") }}
+                </Tooltip>
             </div>
-            <div 
-                name="temp"
-                style="width: 79%;"
-            />
         </the-footer>
     </div>
 </template>
@@ -234,7 +299,7 @@ const openModule = namespace("open");
     middleware: "index",
 })
 export default class Default extends Mixins(CentrifugeMixin) {
-    
+
     @State viewTheme!: "light" | "dark";
     @State loggedInUser!: null | UserInfo;
 
@@ -244,7 +309,7 @@ export default class Default extends Mixins(CentrifugeMixin) {
     devBanner = false;
     isSmall = false;
 
-    async mounted () {
+    async mounted() {
         if (process.client) {
             this.isSmall = window.innerWidth < 576;
             window.addEventListener("resize", () => {
@@ -253,7 +318,7 @@ export default class Default extends Mixins(CentrifugeMixin) {
         }
 
         await this.$store.dispatch("setViewTheme", "dark");
-        
+
         // Get devBanner from localStorage, will be a number equivalent to Date.now() if it exists, if it doesn't exist, or if it's been past the value, then show the banner
         const devBannerTime = localStorage.getItem("devBanner");
         if (!devBannerTime || parseInt(devBannerTime) < Date.now())
@@ -265,12 +330,12 @@ export default class Default extends Mixins(CentrifugeMixin) {
         await this.initCentrifuge(`invitations:${this.loggedInUser.ID}`);
     }
 
-    handleData (ctx: ExtendedPublicationContext) {
+    handleData(ctx: ExtendedPublicationContext) {
         if (ctx.data.type === "invite")
             this.$store.commit("open/addInvite", ctx.data.team);
     }
 
-    hideBanner () {
+    hideBanner() {
         localStorage.setItem("devBanner", (Date.now() + 604800000).toString());
         this.devBanner = false;
     }
@@ -312,7 +377,8 @@ export default class Default extends Mixins(CentrifugeMixin) {
 
     &__nav {
         position: relative;
-        left: calc(30vw - 265px);
+        left: 50%;
+        transform: translateX(-75%);
         align-self: center;
         display: flex;
         width: 40vw;
@@ -338,8 +404,8 @@ export default class Default extends Mixins(CentrifugeMixin) {
             &.nuxt-link-exact-active::after {
                 content: "";
                 position: absolute;
-                left: calc(50% - 4.5px/2);
-                bottom: -7px; 
+                left: calc(50% - 4.5px / 2);
+                bottom: -7px;
                 width: 4.5px;
                 height: 4.5px;
                 transform: rotate(-45deg);
@@ -353,6 +419,7 @@ export default class Default extends Mixins(CentrifugeMixin) {
     height: 100%;
     display: flex;
     align-items: center;
+    gap: 16px;
     @include breakpoint(mobile) {
         margin-right: auto;
     }
@@ -369,12 +436,10 @@ export default class Default extends Mixins(CentrifugeMixin) {
         height: 20px;
         filter: brightness(100);
         @include breakpoint(tablet) {
-            margin-right: 5px;
-            height: 25px;   
+            height: 25px;
         }
         @include breakpoint(laptop) {
-            margin-right: 10px;
-            height: 30px;   
+            height: 24px;
         }
         // &--light {
         //     filter: invert(1);

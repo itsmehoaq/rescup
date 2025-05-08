@@ -70,7 +70,7 @@ export default class ContentButton extends Vue {
     }
 
     &--red {
-        color: #181818;
+        color: $white;
         background-color: $open-red;
     }
 
@@ -91,7 +91,7 @@ export default class ContentButton extends Vue {
     }
 
     &--red:hover {
-        background-color: #CD2443;
+        background-color: #D2B3FF;
     }
 
     &--red_outline {

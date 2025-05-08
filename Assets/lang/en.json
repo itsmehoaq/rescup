@@ -493,12 +493,16 @@
         },
         "footer": {
             "corsace": "RESURRECTION CUP",
+            "blueSky": "BLUE SKY",
             "twitter": "TWITTER",
             "discord": "DISCORD",
             "twitch": "TWITCH",
             "youtube": "YOUTUBE",
+            "forumPost": "FORUM POST",
+            "challonge": "CHALLONGE",
             "github": "GITHUB",
-            "sheet": "SHEET"
+            "sheet": "SHEET",
+            "kofi": "KOFI"
         },
         "stages": {
             "qualifiers": "QUALIFIERS",
@@ -528,9 +532,9 @@
             "presentedBy": "RESURRECTION CUP 2025 IS SPONSORED BY",
             "registrations": "REGISTRATIONS",
             "button": {
-                "qualifiersMappool": "QUALIFIERS MAPPOOL",
+                "qualifiersMappool": "Qualifiers Mappool",
                 "mappoolDownload": "Mappool download and statistics",
-                "register": "TEAM REGISTRATION",
+                "register": "Team Registration",
                 "registrationsEnd": "Registrations end {time}"
             }
         },
@@ -725,7 +729,7 @@
             },
             "registration":{
                 "noRegistration": "Registered in no tournaments",
-                "toPlay": "To play in Corsace Open, get {minTeamSize}-{maxTeamSize} members, and choose a qualifier date and time below"
+                "toPlay": "To play in Resurrection Cup, get {minTeamSize}-{maxTeamSize} members, and choose a qualifier date and time below"
             },
             "imageReq": "Images must be in jpg/jpeg/png, 3:1 aspect ratio, and does not exceed 5MB.",
             "inappropriate": "Any team name, and avatar deemed inappropriate by staff must be changed.",
