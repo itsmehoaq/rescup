@@ -22,8 +22,8 @@ COPY Server/ /src/Server/
 COPY Typing/ /src/Typing/
 COPY config/ /src/config/
 
-RUN npm run build:ayim
-RUN npm run build:mca
+RUN #npm run build:ayim
+RUN #npm run build:mca
 RUN npm run build:main
 RUN npm run build:api
 RUN npm run build:open
