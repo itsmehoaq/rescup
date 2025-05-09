@@ -56,6 +56,7 @@
                     {{ $t('open.info.teamStructure') }}
                 </OpenTitle>
                 <div class="info_desc__text info_desc__text--noAlign">
+                    <p><em>*{{ $t('open.info.perennialCredit') }}</em></p>
                     <ul
                         class="info_desc__list"
                         v-html="$t('open.info.teamStructureText')"
