@@ -145,7 +145,7 @@
                     />
                     <ContentButton 
                         class="content_button--red info_report_button content_button--margin"
-                        link="https://pif.ephemeral.ink/tournament-reports"
+                        link="https://tcomm.hivie.tn/reports/create"
                         external
                     >
                         {{ $t('open.info.reportTournament') }}
@@ -168,7 +168,7 @@
                     <hr class="line--gray line--no-fill">
                     <ContentButton 
                         class="content_button--red info_report_button content_button--margin"
-                        link="https://pif.ephemeral.ink/tournament-reports"
+                        link="https://tcomm.hivie.tn/reports/create"
                         external
                     >
                         {{ $t('open.info.reportTournament') }}
