@@ -200,7 +200,7 @@
                     <template #icon>
                         <a
                             class="socials__link"
-                            href="https://challonge.com"
+                            href="https://challonge.com/RESC25"
                             target="_blank"
                         >
                             <img
