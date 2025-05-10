@@ -183,7 +183,7 @@
                     <template #icon>
                         <a
                             class="socials__link"
-                            href="https://osu.ppy.sh/community/forums/topics/1945196?n=1"
+                            href="https://osu.ppy.sh/community/forums/topics/2076778?n=1"
                             target="_blank"
                         >
                             <img
@@ -200,7 +200,7 @@
                     <template #icon>
                         <a
                             class="socials__link"
-                            href="https://osu.ppy.sh/community/forums/topics/1945196?n=1"
+                            href="https://challonge.com"
                             target="_blank"
                         >
                             <img
@@ -217,8 +217,7 @@
                     <template #icon>
                         <a
                             class="socials__link"
-                            href="https://docs.google.com/spreadsheets/d/1f2538nh9McAii15EJkHU18fi65ICQihxsmvTK-qhA0w"
-                            target="_blank"
+                            href="#"
                         >
                             <img
                                 class="socials__icon"
