@@ -98,7 +98,7 @@
                     <template #icon>
                         <a
                             class="socials__link"
-                            href="https://twitter.com/corsace_"
+                            href="https://twitter.com/ResurrectionCup"
                             target="_blank"
                         >
                             <img
@@ -145,29 +145,11 @@
                     </template>
                     {{ $t("open.footer.discord") }}
                 </Tooltip>
-                <!--                <Tooltip>-->
-                <!--                    <template #icon>-->
-                <!--                        <a-->
-                <!--                            class="socials__link"-->
-                <!--                            href="https://discord.gg/Z6vEMsr"-->
-                <!--                            target="_blank"-->
-                <!--                        >-->
-                <!--                            <img-->
-                <!--                                class="socials__icon"-->
-                <!--                                :class="`socials__icon&#45;&#45;${viewTheme}`"-->
-                <!--                                src="../../Assets/img/social/discord.svg"-->
-                <!--                                alt=""-->
-                <!--                            >-->
-                <!--                        </a>-->
-                <!--                    </template>-->
-                <!--                    {{ $t("open.footer.discord") }}-->
-                <!--                </Tooltip>-->
-
                 <Tooltip>
                     <template #icon>
                         <a
                             class="socials__link"
-                            href="https://www.twitch.tv/corsace"
+                            href="https://www.twitch.tv/resurrectioncup"
                             target="_blank"
                         >
                             <img
@@ -184,7 +166,7 @@
                     <template #icon>
                         <a
                             class="socials__link"
-                            href="https://youtube.com/corsace"
+                            href="https://youtube.com/@resurrectioncup"
                             target="_blank"
                         >
                             <img

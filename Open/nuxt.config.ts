@@ -13,33 +13,33 @@ export default {
             { charset: "utf-8" },
             { name: "viewport", content: "width=1024" },
             // { name: "viewport", content: "width=device-width, initial-scale=1" }, TODO: Fix mobile
-            { property: "og:site_name", content: "Corsace Open" },
-            { hid: "theme-color", name: "theme-color", content: "#F24141" },
+            { property: "og:site_name", content: "Resurrection Cup 2025" },
+            { hid: "theme-color", name: "theme-color", content: "#974cff" },
 
-            { hid: "og:url", property: "og:url", content: "https://open.corsace.io"},
+            { hid: "og:url", property: "og:url", content: "https://rescup.corsace.io"},
             { hid: "og:type", property: "og:type", content: "website"},
 
             { hid: "og:locale", property: "og:locale", content: "en_US"},
 
-            { property: "og:locale:alternate", content: "cn_HK" },
-            { property: "og:locale:alternate", content: "de_DE" },
-            { property: "og:locale:alternate", content: "es_ES" },
-            { property: "og:locale:alternate", content: "fr_FR" },
-            { property: "og:locale:alternate", content: "id_ID" },
-            { property: "og:locale:alternate", content: "ja_JP" },
-            { property: "og:locale:alternate", content: "ko_KR" },
-            { property: "og:locale:alternate", content: "nl_NL" },
+            // { property: "og:locale:alternate", content: "cn_HK" },
+            // { property: "og:locale:alternate", content: "de_DE" },
+            // { property: "og:locale:alternate", content: "es_ES" },
+            // { property: "og:locale:alternate", content: "fr_FR" },
+            // { property: "og:locale:alternate", content: "id_ID" },
+            // { property: "og:locale:alternate", content: "ja_JP" },
+            // { property: "og:locale:alternate", content: "ko_KR" },
+            // { property: "og:locale:alternate", content: "nl_NL" },
             
             { hid: "og:image:width", property: "og:image:width", content: "547" },
             { hid: "og:image:height", property: "og:image:height", content: "223" },
             { hid: "og:image:type", property: "og:image:type", content: "image/png" },
-            { hid: "og:image:alt", property: "og:image:alt", content: "Corsace Open" },
+            { hid: "og:image:alt", property: "og:image:alt", content: "Resurrection Cup 2025" },
             
-            { name: "twitter:site", content: "@corsace_" },
-            { name: "twitter:domain", content: "https://open.corsace.io" },
+            { name: "twitter:site", content: "@ResurrectionCup" },
+            { name: "twitter:domain", content: "https://rescup.corsace.io" },
             { name: "twitter:card", content: "summary_large_image" },
 
-            {hid: "keywords", property: "keywords", content: "corsace, corsace open, osu!, tournament, qualifiers, teams"},
+            {hid: "keywords", property: "keywords", content: "resurrection cup, rescup, osu!, tournament, qualifiers, teams"},
         ],
     },
 } as NuxtConfig;
