@@ -53,7 +53,7 @@
                 <!-- RIGHT: register your team-->
                 <div class="index_portal__section">
                     <OpenFrontPageButton
-                        :link="loggedInUser ? loggedInUser.discord.username ? '/team/create' : '/api/login/discord?site=open&redirect=/team/create' : '/api/login/osu?site=open&redirect=/'"
+                        :link="loggedInUser ? loggedInUser.discord.username ? '/team/create' : '/api/login/discord?site=rescup&redirect=/team/create' : '/api/login/osu?site=rescup&redirect=/'"
                         :external="loggedInUser?.discord.username ? false : true"
                     >
                         <template #title>
