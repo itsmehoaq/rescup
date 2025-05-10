@@ -1,8 +1,15 @@
 import { NuxtConfig } from "@nuxt/types";
 import nuxtConfig from "../Assets/nuxt.base.config";
+import { config } from "node-config-ts";
 
 export default {
     ...nuxtConfig("open"),
+    proxy: {
+        "/api/": {
+            target: config.api.publicUrl,
+            cookieDomainRewrite: "",
+        },
+    },
     head: {
         title: "Corsace Open",
         link: [
