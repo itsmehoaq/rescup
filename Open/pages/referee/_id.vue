@@ -617,16 +617,16 @@ interface playerState {
         return {
             title: this.$store.state.open.title,
             meta: [
-                {hid: "description", name: "description", content: this.$store.state.open.tournament?.description || ""},
+                {hid: "description", name: "description", content: "Resurrection Cup 2025 (also known as Resurrection Cup: Regulus Revolution), one of osu! standard's largest tournaments. Organized by Phreel and Hoaq, gathering some of the most skilled to the most strategic players from the community. All this to determine who's securing the winner's throne... until next year that is." || ""},
 
-                {hid: "og:site_name", property: "og:site_name", content: this.$store.state.open.title},
-                {hid: "og:title", property: "og:title", content: this.$store.state.open.title},
+                {hid: "og:site_name", property: "og:site_name", content: "Resurrection Cup 2025"},
+                {hid: "og:title", property: "og:title", content: "Resurrection Cup 2025"},
                 {hid: "og:url", property: "og:url", content: `https://rescup.corsace.io${this.$route.path}`}, 
-                {hid: "og:description", property: "og:description", content: this.$store.state.open.tournament?.description || ""},
+                {hid: "og:description", property: "og:description", content: "Resurrection Cup 2025 (also known as Resurrection Cup: Regulus Revolution), one of osu! standard's largest tournaments. Organized by Phreel and Hoaq, gathering some of the most skilled to the most strategic players from the community. All this to determine who's securing the winner's throne... until next year that is." || ""},
                 {hid: "og:image",property: "og:image", content: require("../../../Assets/img/site/open/banner.png")},
                 
-                {name: "twitter:title", content: this.$store.state.open.title},
-                {name: "twitter:description", content: this.$store.state.open.tournament?.description || ""},
+                {name: "twitter:title", content: "Resurrection Cup 2025"},
+                {name: "twitter:description", content: "Resurrection Cup 2025 (also known as Resurrection Cup: Regulus Revolution), one of osu! standard's largest tournaments. Organized by Phreel and Hoaq, gathering some of the most skilled to the most strategic players from the community. All this to determine who's securing the winner's throne... until next year that is." || ""},
                 {name: "twitter:image", content: require("../../../Assets/img/site/open/banner.png")},
                 {name: "twitter:image:src", content: require("../../../Assets/img/site/open/banner.png")},
             ],

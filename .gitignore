@@ -8,3 +8,4 @@ temp/
 dist/
 !.eslintrc.js
 centrifugo
+/backup.sql
