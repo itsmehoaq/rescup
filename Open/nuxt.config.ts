@@ -3,7 +3,7 @@ import nuxtConfig from "../Assets/nuxt.base.config";
 import { config } from "node-config-ts";
 
 export default {
-    ...nuxtConfig("open"),
+    ...nuxtConfig("rescup"),
     proxy: {
         "/api/": {
             target: config.api.publicUrl,
@@ -36,12 +36,12 @@ export default {
             // { property: "og:locale:alternate", content: "ja_JP" },
             // { property: "og:locale:alternate", content: "ko_KR" },
             // { property: "og:locale:alternate", content: "nl_NL" },
-            
+
             { hid: "og:image:width", property: "og:image:width", content: "547" },
             { hid: "og:image:height", property: "og:image:height", content: "223" },
             { hid: "og:image:type", property: "og:image:type", content: "image/png" },
             { hid: "og:image:alt", property: "og:image:alt", content: "Resurrection Cup 2025" },
-            
+
             { name: "twitter:site", content: "@ResurrectionCup" },
             { name: "twitter:domain", content: "https://rescup.corsace.io" },
             { name: "twitter:card", content: "summary_large_image" },

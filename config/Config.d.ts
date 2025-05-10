@@ -101,6 +101,7 @@ declare module "node-config-ts" {
         koaKeys: string[];
         cookiesDomain: string;
 
+        rescup: ISubSiteConfig;
         ayim: ISubSiteConfig;
         corsace: ISubSiteConfig;
         closed: ISubSiteConfig;
