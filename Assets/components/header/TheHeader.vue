@@ -76,13 +76,13 @@
                         <slot name="menu" />
                         <a
                             v-if="!loggedInUser.discord || !loggedInUser.discord.userID"
-                            :href="`/api/login/discord?site=${site}&redirect=${$route.fullPath}`"
+                            :href="`/api/login/discord?site=rescup&redirect=${$route.fullPath}`"
                         >
                             <MenuItem>{{ $t('header.login', { site: "discord" }) }}</MenuItem>
                         </a>
                         <a 
                             v-else
-                            :href="`/api/login/discord?site=${site}&redirect=${$route.fullPath}`"
+                            :href="`/api/login/discord?site=rescup&redirect=${$route.fullPath}`"
                         >
                             <MenuItem>{{ $t('header.changeDiscord') }}</MenuItem>
                         </a>
@@ -103,7 +103,7 @@
             <a
                 class="header-login__link"
                 :class="`header-login__link--${viewTheme} header-login__link--${site}`"
-                :href="`/api/login/osu?site=${site}&redirect=${$route.fullPath}`"
+                :href="`/api/login/osu?site=rescup&redirect=${$route.fullPath}`"
             >
                 {{ site !== "open" ? $t('header.login', { site: "osu!" }) : $t('header.login', { site: "osu!" }).toString().split("osu!").map(p => p === "osu!" ? p : p.toUpperCase()).join('osu!') }}
             </a>
