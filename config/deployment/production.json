@@ -55,7 +55,10 @@
     "koaKeys": ["@@KOA_KEY"],
     "cookiesDomain": "corsace.io",
     "rescup": {
-        "publicUrl": "@@RESCUP_PUBLICURL"
+        "host": "::",
+        "port": 80,
+        "publicUrl": "@@RESCUP_PUBLICURL",
+        "ssr": "@@RESCUP_SSR"
     },
     "ayim": {
         "host": "::",

@@ -58,7 +58,10 @@
     ],
     "cookiesDomain": "localhost",
     "rescup": {
-        "publicUrl": ""
+        "host": "localhost",
+        "port": 7000,
+        "publicUrl": "http://localhost:7000",
+        "ssr": true
     },
     "ayim": {
         "host": "localhost",
