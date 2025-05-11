@@ -97,8 +97,8 @@ export const mutations: MutationTree<OpenState> = {
                 },
                 {
                     event: "Screening Intermission",
-                    start: "2025-06-01T00:00:00.000Z",
-                    end: "2025-06-08T00:00:00.000Z",
+                    start: "2025-06-07T00:00:00.000Z",
+                    end: "2025-06-15T00:00:00.000Z",
                 },
                 {
                     event: "Round of 32",
