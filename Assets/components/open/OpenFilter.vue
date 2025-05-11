@@ -154,7 +154,7 @@ export default class OpenFilter extends Vue {
 
         &:hover {
             & .open_filter__icon_square {
-                background-color: #CD2443;
+                background-color: #D2B3FF;
             }   
         }
     }
