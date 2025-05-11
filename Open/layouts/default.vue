@@ -329,7 +329,7 @@ export default class Default extends Mixins(CentrifugeMixin) {
 
 .header {
     border-bottom: 1px solid $open-red;
-    background-image: url("../../Assets/img/site/open/navlogo.svg"), linear-gradient(0deg, white, white);
+    background-color: #ffffff;
     background-repeat: no-repeat;
     background-position: left center;
     width: 100vw;
@@ -344,7 +344,6 @@ export default class Default extends Mixins(CentrifugeMixin) {
 
     &__logo {
         padding-left: 6px;
-        margin-top: 27.5px;
         @include breakpoint(tablet) {
             padding-left: 7px;
         }
@@ -352,14 +351,18 @@ export default class Default extends Mixins(CentrifugeMixin) {
             padding-left: 9px;
         }
         @include breakpoint(desktop) {
-            padding-left: 130px;
+            padding-left: 2rem;
         }
+        
+        height: 100%;
+        padding-top: 0.75rem;
+        padding-bottom: 0.75rem;
     }
 
     &__nav {
         position: relative;
         left: 50%;
-        transform: translateX(-75%);
+        transform: translateX(-85%);
         align-self: center;
         display: flex;
         width: 40vw;
