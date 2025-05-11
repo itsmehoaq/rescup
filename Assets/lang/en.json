@@ -527,7 +527,7 @@
             }
         },
         "home": {
-            "description": "Dive into Corsace Open 2024 - where the world's osu! elites battle it out.",
+            "description": "Dive into Resurrection Cup 2025 - where the world's osu! elites battle it out.",
             "timeline": "TIMELINE",
             "presentedBy": "RESURRECTION CUP 2025 IS SPONSORED BY",
             "registrations": "REGISTRATIONS",
@@ -747,7 +747,7 @@
             "joinQualRegister": "JOIN QUALIFIERS TO REGISTER",
             "needMorePlayers": "You need at least {count} more players",
             "needLessPlayers": "You need at least {count} less players",
-            "notRegistered": "Currently not registered in Corsace Open."
+            "notRegistered": "Currently not registered in Resurrection Cup."
         },
         "schedule": {
             "all": "ALL",
