@@ -97,37 +97,37 @@ export const mutations: MutationTree<OpenState> = {
                 },
                 {
                     event: "Screening Intermission",
-                    start: "2025-06-07T00:00:00.000Z",
+                    start: "2025-06-08T00:00:00.000Z",
                     end: "2025-06-15T00:00:00.000Z",
                 },
                 {
                     event: "Round of 32",
-                    start: "2025-06-16T00:00:00.000Z",
+                    start: "2025-06-20T00:00:00.000Z",
                     end: "2025-06-22T00:00:00.000Z",
                 },
                 {
                     event: "Round of 16",
-                    start: "2025-06-23T00:00:00.000Z",
+                    start: "2025-06-27T00:00:00.000Z",
                     end: "2025-06-29T00:00:00.000Z",
                 },
                 {
                     event: "Quarterfinals",
-                    start: "2025-06-30T00:00:00.000Z",
+                    start: "2025-07-04T00:00:00.000Z",
                     end: "2025-07-06T00:00:00.000Z",
                 },
                 {
                     event: "Semifinals",
-                    start: "2025-07-07T00:00:00.000Z",
+                    start: "2025-07-11T00:00:00.000Z",
                     end: "2025-07-13T00:00:00.000Z",
                 },
                 {
                     event: "Finals",
-                    start: "2025-07-14T00:00:00.000Z",
+                    start: "2025-07-18T00:00:00.000Z",
                     end: "2025-07-20T00:00:00.000Z",
                 },
                 {
                     event: "Grand Finals",
-                    start: "2025-07-21T00:00:00.000Z",
+                    start: "2025-07-25T00:00:00.000Z",
                     end: "2025-07-27T00:00:00.000Z",
                 },
             ];
