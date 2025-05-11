@@ -13,14 +13,6 @@ const locales: {
     },
 ];
 
-fs.readdirSync("../Assets/lang/translated").forEach(file => {
-    if (file !== "index.js")
-        locales.push({
-            code: file.split(".")[0],
-            file: `translated/${file}`,
-        });
-});
-
 export default (subSite: string): Partial<NuxtConfig> => {
     if (!(subSite in config))
         throw new Error(`Invalid subSite: ${subSite}`);
