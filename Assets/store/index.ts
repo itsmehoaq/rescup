@@ -20,12 +20,13 @@ export const mutations: MutationTree<BaseState> = {
         baseState.loggedInUser = user;
     },
     setViewTheme (baseState, defaultTheme: "light" | "dark") {
-        const localTheme = localStorage.getItem("theme");
+        baseState.viewTheme = "light";      
+        // const localTheme = localStorage.getItem("theme");
 
-        if (localTheme && themeRegex.test(localTheme))
-            baseState.viewTheme = localTheme as "light" | "dark";
-        else
-            baseState.viewTheme = defaultTheme;
+        // if (localTheme && themeRegex.test(localTheme))
+        //     baseState.viewTheme = localTheme as "light" | "dark";
+        // else
+        //    baseState.viewTheme = defaultTheme;
     },
     updateViewTheme (baseState, theme) {
         if (themeRegex.test(theme)) {
