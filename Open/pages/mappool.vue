@@ -16,8 +16,8 @@
                     #right
                 >
                     <StageSelector
-                        :not-beginning="selectedStage?.ID !== stageList[0]?.ID"
-                        :not-end="selectedStage?.ID !== stageList[stageList.length - 1]?.ID"
+                        :not-beginning="selectedStage !== stageList[0]"
+                        :not-end="selectedStage !== stageList[stageList.length - 1]"
                         @prev="index--"
                         @next="index++"
                     >
@@ -54,8 +54,8 @@
                     #right
                 >
                     <StageSelector
-                        :not-beginning="selectedStage?.ID !== stageList[0]?.ID"
-                        :not-end="selectedStage?.ID !== stageList[stageList.length - 1]?.ID"
+                        :not-beginning="selectedStage !== stageList[0]"
+                        :not-end="selectedStage !== stageList[stageList.length - 1]"
                         @prev="index--"
                         @next="index++"
                     >
@@ -129,6 +129,7 @@ import { namespace } from "vuex-class";
 
 import { Tournament } from "../../Interfaces/tournament";
 import { Stage } from "../../Interfaces/stage";
+import { Round } from "../../Interfaces/round";
 import { Mappool as MappoolInterface } from "../../Interfaces/mappool";
 import { MatchupScore } from "../../Interfaces/matchup";
 
@@ -181,10 +182,10 @@ export default class Mappool extends Vue {
     @openModule.State mappools!: MappoolInterface[] | null;
     @openModule.State scores!: MatchupScore[] | null;
 
-    stageList: Stage[] = [];
-    index = 0;
+    stageList: (Stage | Round)[] = [];
+    index = -1;
     
-    get selectedStage (): Stage | null {
+    get selectedStage (): Stage | Round | null {
         return this.stageList[this.index] || null;
     }
 
@@ -205,9 +206,9 @@ export default class Mappool extends Vue {
         await this.pause(500);
         if (ID !== this.selectedStage.ID) return;
 
-        await this.$store.dispatch("open/setMappools", this.selectedStage?.ID);
+        await this.$store.dispatch("open/setMappools", this.selectedStage);
         if (this.page === "scores")
-            await this.$store.dispatch("open/setScores", this.selectedStage?.ID);
+            await this.$store.dispatch("open/setScores", this.selectedStage);
         this.loading = false;
     }
 
@@ -217,7 +218,7 @@ export default class Mappool extends Vue {
         if (page === "scores" && !this.selectedStage)
             return;
         if (page === "scores" && (!this.scores || this.scores.length === 0))
-            await this.$store.dispatch("open/setScores", this.selectedStage?.ID);
+            await this.$store.dispatch("open/setScores", this.selectedStage);
         this.page = page;
     }
 
@@ -226,8 +227,21 @@ export default class Mappool extends Vue {
     }
 
     mounted () {
-        this.stageList = this.tournament?.stages ?? [];
-        this.index = this.stageList.findIndex(s => s.timespan.end > new Date());
+        for(const stage of (this.tournament?.stages ?? [])) {
+            if (stage.rounds.length < 2) {
+                this.stageList.push(stage);
+                if(this.index === -1 && stage.timespan.end > new Date()) {
+                    this.index = this.stageList.length - 1;
+                }
+            } else {
+                for(const round of stage.rounds) {
+                    this.stageList.push(round);
+                    if(this.index === -1 && stage.timespan.end > new Date()) {
+                        this.index = this.stageList.length - 1;
+                    }
+                }
+            }
+        }
         if (this.index === -1)
             this.index = this.stageList.length - 1;
     }

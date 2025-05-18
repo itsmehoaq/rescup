@@ -187,7 +187,7 @@ export default class Qualifiers extends Vue {
     async getMappool () {
         this.page = "mappool";
         if (!this.calledMappool) {
-            await this.$store.dispatch("open/setMappools", this.qualifiersStage?.ID);
+            await this.$store.dispatch("open/setMappools", this.qualifiersStage);
             this.calledMappool = true;
         }
     }
@@ -196,10 +196,10 @@ export default class Qualifiers extends Vue {
         this.page = "scores";
         if (!this.calledScores) {
             if (!this.calledMappool) {
-                await this.$store.dispatch("open/setMappools", this.qualifiersStage?.ID);
+                await this.$store.dispatch("open/setMappools", this.qualifiersStage);
                 this.calledMappool = true;
             }
-            await this.$store.dispatch("open/setScores", this.qualifiersStage?.ID);
+            await this.$store.dispatch("open/setScores", this.qualifiersStage);
             this.calledScores = true;
         }
     }
