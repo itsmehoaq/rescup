@@ -5,6 +5,8 @@ import { BaseQualifier } from "../../Interfaces/qualifier";
 import { OpenStaffInfo, StaffList } from "../../Interfaces/staff";
 import { MatchupList, MatchupScore } from "../../Interfaces/matchup";
 import { Mappool } from "../../Interfaces/mappool";
+import { Round } from "../../Interfaces/round";
+import { Stage } from "../../Interfaces/stage";
 
 export interface OpenState {
     title: string;
@@ -245,29 +247,35 @@ export const actions: ActionTree<OpenState, OpenState> = {
         if (data.success)
             commit("setQualifierList", data.qualifiers);
     },
-    async setMatchups ({ commit }, stageID) {
-        if (!stageID || isNaN(parseInt(stageID)))
+    async setMatchups ({ commit }, roundOrStage: Stage | Round) {
+        if (!roundOrStage)
             return;
 
-        const { data } = await this.$axios.get<{ matchups: MatchupList[] }>(`/api/stage/${stageID}/matchups`);
+        const parentType = "stageType" in roundOrStage ? "stage" : "round";
+
+        const { data } = await this.$axios.get<{ matchups: MatchupList[] }>(`/api/${parentType}/${roundOrStage.ID}/matchups`);
 
         if (data.success)
             commit("setMatchups", data.matchups);
     },
-    async setMappools ({ commit }, stageID) {
-        if (!stageID || isNaN(parseInt(stageID)))
+    async setMappools ({ commit }, roundOrStage: Stage | Round) {
+        if (!roundOrStage)
             return;
 
-        const { data } = await this.$axios.get<{ mappools: Mappool[] }>(`/api/stage/${stageID}/mappools`);
+        const parentType = "stageType" in roundOrStage ? "stage" : "round";
+
+        const { data } = await this.$axios.get<{ mappools: Mappool[] }>(`/api/${parentType}/${roundOrStage.ID}/mappools`);
 
         if (data.success)
             commit("setMappools", data.mappools);
     },
-    async setScores ({ commit }, stageID) {
-        if (!stageID || isNaN(parseInt(stageID)))
+    async setScores ({ commit }, roundOrStage: Stage | Round) {
+        if (!roundOrStage)
             return;
 
-        const { data } = await this.$axios.get<{ scores: MatchupScore[] }>(`/api/stage/${stageID}/scores`);
+        const parentType = "stageType" in roundOrStage ? "stage" : "round";
+
+        const { data } = await this.$axios.get<{ scores: MatchupScore[] }>(`/api/${parentType}/${roundOrStage.ID}/scores`);
 
         if (data.success)
             commit("setScores", data.scores);

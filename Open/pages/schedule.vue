@@ -111,7 +111,7 @@
                             </div>
                         </template>
                     </OpenFilter>
-                    <OpenFilter v-else-if="page === 'brackets' && selectedStage?.stageType === 3">
+                    <OpenFilter v-else-if="page === 'brackets' && isRoundRobinStage">
                         <template #view>
                             <div style="cursor: default;">
                                 {{ $t("open.schedule.group") }}
@@ -133,8 +133,8 @@
                         </template>
                     </OpenFilter>
                     <StageSelector
-                        :not-beginning="selectedStage?.ID !== stageList[0]?.ID"
-                        :not-end="selectedStage?.ID !== stageList[stageList.length - 1]?.ID"
+                        :not-beginning="selectedStage !== stageList[0]"
+                        :not-end="selectedStage !== stageList[stageList.length - 1]"
                         @prev="index--"
                         @next="index++"
                     >
@@ -196,7 +196,7 @@
                     />
                 </div>
                 <RoundRobinView
-                    v-if="selectedStage?.stageType === 3"
+                    v-if="isRoundRobinStage"
                     :matchups="matchupList"
                     :current="currGroup"
                     @change="currGroup = $event"
@@ -221,6 +221,7 @@ import RoundRobinView from "../../Assets/components/open/RoundRobinView.vue";
 
 import { Tournament } from "../../Interfaces/tournament";
 import { Stage, StageType } from "../../Interfaces/stage";
+import { Round } from "../../Interfaces/round";
 import { MatchupList, matchIDAlphanumericSort } from "../../Interfaces/matchup";
 import { UserInfo } from "../../Interfaces/user";
 
@@ -265,8 +266,8 @@ export default class Schedule extends Vue {
     @openModule.State matchupList!: MatchupList[] | null;
 
     loading = false;
-    stageList: Stage[] = [];
-    index = 0;
+    stageList: (Stage | Round)[] = [];
+    index = -1;
     searchValue = "";
     page: "schedule" | "brackets" = "schedule";
     view: "ALL" | "UPCOMING" | "ONGOING" | "PAST" = "ALL";
@@ -285,8 +286,12 @@ export default class Schedule extends Vue {
     };
     currentSort: typeof this.sorts[number] = "DATETIME";
     
-    get selectedStage (): Stage | null {
+    get selectedStage (): Stage | Round | null {
         return this.stageList[this.index] || null;
+    }
+
+    get isRoundRobinStage (): boolean {
+        return !!(this.selectedStage && "stageType" in this.selectedStage && this.selectedStage.stageType === StageType.Roundrobin);
     }
 
     get filteredMatchups () {
@@ -325,13 +330,9 @@ export default class Schedule extends Vue {
         }
         
         this.loading = true;
-        const ID = this.selectedStage.ID;
         this.$store.commit("open/setMatchups", []);
 
-        await this.pause(250);
-        if (ID !== this.selectedStage.ID) return;
-
-        await this.$store.dispatch("open/setMatchups", this.selectedStage?.ID);
+        await this.$store.dispatch("open/setMatchups", this.selectedStage);
         const matchupIDSet = new Set<string>();
         for (const matchup of this.matchupList ?? []) {
             if (matchup.matchID && isNaN(parseInt(matchup.matchID)))
@@ -344,10 +345,6 @@ export default class Schedule extends Vue {
         this.loading = false;
     }
 
-    async pause (ms: number) {
-        return new Promise((resolve) => setTimeout(resolve, ms));
-    }
-
     changePage (page: "schedule" | "brackets") {
         if (page === this.page)
             return;
@@ -357,8 +354,23 @@ export default class Schedule extends Vue {
     }
 
     mounted () {
-        this.stageList = this.tournament?.stages.filter(stage => stage.stageType !== StageType.Qualifiers) ?? [];
-        this.index = this.stageList.findIndex(stage => stage.timespan.end.getTime() > Date.now());
+        for(const stage of (this.tournament?.stages ?? [])) {
+            if (stage.stageType === StageType.Qualifiers)
+                continue;
+            if (stage.rounds.length < 2) {
+                this.stageList.push(stage);
+                if(this.index === -1 && stage.timespan.end > new Date()) {
+                    this.index = this.stageList.length - 1;
+                }
+            } else {
+                for(const round of stage.rounds) {
+                    this.stageList.push(round);
+                    if(this.index === -1 && stage.timespan.end > new Date()) {
+                        this.index = this.stageList.length - 1;
+                    }
+                }
+            }
+        }
         if (this.index === -1)
             this.index = this.stageList.length - 1;
     }
@@ -419,7 +431,7 @@ export default class Schedule extends Vue {
     }
 
     async updateMatchup () {
-        await this.$store.dispatch("open/setMatchups", this.selectedStage?.ID);
+        await this.$store.dispatch("open/setMatchups", this.selectedStage);
     }
 }
 

@@ -225,7 +225,7 @@ export default class Qualifier extends Vue {
     async mounted () {
         this.qualifierData = await this.getQualifier();
         if (this.qualifierData) {
-            await this.$store.dispatch("open/setMappools", this.qualifiersStage?.ID);
+            await this.$store.dispatch("open/setMappools", this.qualifiersStage);
             this.$store.commit("open/setScores", this.qualifierData.scores);
             this.qualifierData.date = new Date(this.qualifierData.date);
         }
