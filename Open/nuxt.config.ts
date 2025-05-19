@@ -23,7 +23,7 @@ export default {
             { property: "og:site_name", content: "Resurrection Cup 2025" },
             { hid: "theme-color", name: "theme-color", content: "#974cff" },
 
-            { hid: "og:url", property: "og:url", content: "https://rescup.corsace.io"},
+            { hid: "og:url", property: "og:url", content: "https://rescup.xyz"},
             { hid: "og:type", property: "og:type", content: "website"},
 
             { hid: "og:locale", property: "og:locale", content: "en_US"},
@@ -43,7 +43,7 @@ export default {
             { hid: "og:image:alt", property: "og:image:alt", content: "Resurrection Cup 2025" },
 
             { name: "twitter:site", content: "@ResurrectionCup" },
-            { name: "twitter:domain", content: "https://rescup.corsace.io" },
+            { name: "twitter:domain", content: "https://rescup.xyz" },
             { name: "twitter:card", content: "summary_large_image" },
 
             {hid: "keywords", property: "keywords", content: "resurrection cup, rescup, osu!, tournament, qualifiers, teams"},
