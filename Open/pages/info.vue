@@ -431,7 +431,7 @@ enum StageStatus {
 
                 {hid: "og:site_name", property: "og:site_name", content: "Resurrection Cup 2025"},
                 {hid: "og:title", property: "og:title", content: "Resurrection Cup 2025"},
-                {hid: "og:url", property: "og:url", content: `https://rescup.corsace.io${this.$route.path}`}, 
+                {hid: "og:url", property: "og:url", content: `https://rescup.xyz${this.$route.path}`}, 
                 {hid: "og:description", property: "og:description", content: "Resurrection Cup 2025 (also known as Resurrection Cup: Regulus Revolution), one of osu! standard's largest tournaments. Organized by Phreel and Hoaq, gathering some of the most skilled to the most strategic players from the community. All this to determine who's securing the winner's throne... until next year that is." || ""},
                 {hid: "og:image",property: "og:image", content: require("../../Assets/img/site/open/banner.png")},
                 
@@ -440,7 +440,7 @@ enum StageStatus {
                 {name: "twitter:image", content: require("../../Assets/img/site/open/banner.png")},
                 {name: "twitter:image:src", content: require("../../Assets/img/site/open/banner.png")},
             ],
-            link: [{rel: "canonical", hid: "canonical", href: `https://rescup.corsace.io${this.$route.path}`}],
+            link: [{rel: "canonical", hid: "canonical", href: `https://rescup.xyz${this.$route.path}`}],
         };
     },
 })
