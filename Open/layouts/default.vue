@@ -217,7 +217,7 @@
                     <template #icon>
                         <a
                             class="socials__link"
-                            href="#"
+                            href="https://docs.google.com/spreadsheets/d/1Fzf9nzjPS8FeX4bR7Kyzj1qnpUB5xbXz0KwH-b7-5ic/edit?rm=minimal"
                         >
                             <img
                                 class="socials__icon"

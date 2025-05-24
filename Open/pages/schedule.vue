@@ -154,7 +154,7 @@
                     <!-- TODO: NOT MAKE THIS A STATIC LINK LOL -->
                     <ContentButton
                         class="content_button--red"
-                        :link="'https://docs.google.com/spreadsheets/d/1f2538nh9McAii15EJkHU18fi65ICQihxsmvTK-qhA0w'"
+                        :link="'https://docs.google.com/spreadsheets/d/1Fzf9nzjPS8FeX4bR7Kyzj1qnpUB5xbXz0KwH-b7-5ic/edit?rm=minimal'"
                         :img-src="require('../../Assets/img/site/open/mappool/sheets-ico.svg')"
                         external
                     >
