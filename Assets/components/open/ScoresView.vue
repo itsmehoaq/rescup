@@ -110,7 +110,7 @@
                             <td>#{{ keepPlacementLocked ? row.truePlacement : row.sortPlacement }}</td>
                             <!-- THE TEAM / PLAYER COLUMN -->
                             <a
-                                :href="syncView === 'players' ? `https://osu.ppy.sh/users/${row.ID}` : `https://open.corsace.io/team/${row.ID}`"
+                                :href="syncView === 'players' ? `https://osu.ppy.sh/users/${row.ID}` : `https://rescup.xyz/team/${row.ID}`"
                                 target="_blank"
                                 class="scores__table_team"
                                 :style="{ 'background-image': `linear-gradient(90deg, transparent 0%, #EF3255 45%), url(${row.avatar || require('../../img/site/open/team/default.png')})` }"
@@ -123,7 +123,7 @@
                             </a>
                             <a
                                 v-if="syncView === 'players'"
-                                :href="`https://open.corsace.io/team/${row.teamID}`"
+                                :href="`https://rescup.xyz/team/${row.teamID}`"
                                 target="_blank"
                                 class="scores__table_team"
                                 :style="{ 'background-image': `linear-gradient(90deg, transparent 0%, #EF3255 45%), url(${row.teamAvatar || require('../../img/site/open/team/default.png')})` }"
