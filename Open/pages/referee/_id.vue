@@ -118,6 +118,7 @@
                         {{ $t('open.referee.createLobby') }}
                     </ContentButton>
                     <ContentButton
+                        v-if="false"
                         class="referee__matchup__header__create_lobby__button content_button--red content_button--red_sm"
                         :class="{
                             'content_button--disabled': !matchup.mp || matchup.stage?.stageType === 0 || !runningLobby,
