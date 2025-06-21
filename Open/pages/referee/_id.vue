@@ -508,7 +508,7 @@
                         >
                             <div
                                 class="referee__matchup__content__map_delete"
-                                @click="banchoCall('deleteMap', { mapID: map.ID })"
+                                @click="banchoCall('deleteMap', { mapID: map.ID, set: (matchupSet?.order || 1) - 1 })"
                             >
                                 X
                             </div>
@@ -1344,7 +1344,8 @@ export default class Referee extends Mixins(CentrifugeMixin) {
             (
                 endpoint === "createLobby" || 
                 endpoint === "roll" ||
-                endpoint === "deleteMap"
+                endpoint === "deleteMap" ||
+                endpoint === "closeLobby"
             ) &&
             !confirm(`Are you sure you want to ${endpoint}?`)
         )
