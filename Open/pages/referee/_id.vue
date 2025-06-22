@@ -111,9 +111,9 @@
                     <ContentButton
                         class="referee__matchup__header__create_lobby__button content_button--red content_button--red_sm"
                         :class="{
-                            'content_button--disabled': matchup.winner || (matchup.mp && runningLobby),
+                            'content_button--disabled': matchup.winner || creatingLobby || (matchup.mp && runningLobby),
                         }"
-                        @click.native="!matchup.winner && (!matchup.mp || !runningLobby) ? banchoCall('createLobby', { auto: false }) : tooltipText = 'Matchup already has a lobby'"
+                        @click.native="!(matchup.winner || creatingLobby || (matchup.mp && runningLobby)) ? banchoCall('createLobby', { auto: false }) : tooltipText = 'Matchup already has a lobby'"
                     >
                         {{ $t('open.referee.createLobby') }}
                     </ContentButton>
@@ -658,6 +658,7 @@ export default class Referee extends Mixins(CentrifugeMixin) {
 
     mapStarted = false;
     runningLobby = false;
+    creatingLobby = false;
     postedResults = false;
     
     settingsBuffer = 5;
@@ -1257,6 +1258,11 @@ export default class Referee extends Mixins(CentrifugeMixin) {
                 this.team2PlayerStates.forEach(player => player.inLobby = player.ready = false);
                 this.runningLobby = false;
                 break;
+            case "updateMatchup":
+                if (["referee", "streamer", "commentators"].includes(ctx.data.key))
+                    // @ts-expect-error unsure how to make this right
+                    this.matchup[ctx.data.key] = ctx.data.value;
+                break;
         }
     }
 
@@ -1352,6 +1358,9 @@ export default class Referee extends Mixins(CentrifugeMixin) {
         )
             return;
 
+        if (endpoint === "createLobby")
+            this.creatingLobby = true;
+
         if (endpoint === "deleteMap" && !confirm("Are you REALLY SURE you want to delete a map? If this is a pick, this is irreversible."))
             return;
 
@@ -1389,6 +1398,7 @@ export default class Referee extends Mixins(CentrifugeMixin) {
         switch (endpoint) {
             case "createLobby":
                 this.tooltipText = "Lobby created";
+                this.creatingLobby = false;
                 break;
             case "closeLobby":
                 this.tooltipText = "Lobby closed";
