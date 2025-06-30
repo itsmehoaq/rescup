@@ -359,20 +359,13 @@ export default class Schedule extends Vue {
                 continue;
             if (stage.rounds.length < 2) {
                 this.stageList.push(stage);
-                if(this.index === -1 && stage.timespan.end > new Date()) {
-                    this.index = this.stageList.length - 1;
-                }
             } else {
                 for(const round of stage.rounds) {
                     this.stageList.push(round);
-                    if(this.index === -1 && stage.timespan.end > new Date()) {
-                        this.index = this.stageList.length - 1;
-                    }
                 }
             }
         }
-        if (this.index === -1)
-            this.index = this.stageList.length - 1;
+        this.index = this.stageList.findIndex((stageOrRound) => stageOrRound.abbreviation === "QF");
     }
 
     updated () {
