@@ -228,7 +228,7 @@ export default class Mappool extends Vue {
                 }
             }
         }
-        this.index = this.stageList.findIndex((stageOrRound) => stageOrRound.abbreviation === "QF");
+        this.index = this.stageList.findIndex((stageOrRound) => stageOrRound.abbreviation === "SF");
     }
 }
 </script>

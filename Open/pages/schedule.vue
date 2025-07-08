@@ -365,7 +365,7 @@ export default class Schedule extends Vue {
                 }
             }
         }
-        this.index = this.stageList.findIndex((stageOrRound) => stageOrRound.abbreviation === "QF");
+        this.index = this.stageList.findIndex((stageOrRound) => stageOrRound.abbreviation === "SF");
     }
 
     updated () {
