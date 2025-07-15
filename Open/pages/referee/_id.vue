@@ -1405,7 +1405,7 @@ export default class Referee extends Mixins(CentrifugeMixin) {
                 this.tooltipText = "Lobby closed";
                 break;
             case "forfeit":
-                this.tooltipText = `Match forfeited by ${data.team === "1" ? this.matchup.team1?.name : this.matchup.team2?.name}`;
+                this.tooltipText = `Match forfeited by ${data.team === 1 ? this.matchup.team1?.name : this.matchup.team2?.name}`;
                 break;
             case "addRef":
                 this.tooltipText = "Addreffed";
@@ -1417,7 +1417,7 @@ export default class Referee extends Mixins(CentrifugeMixin) {
                 this.tooltipText = "Rolled";
                 break;
             case "first":
-                this.tooltipText = `First team set to ${data.team === "1" ? this.matchup.team1?.name : this.matchup.team2?.name}`;
+                this.tooltipText = `First team set to ${data.team === 1 ? this.matchup.team1?.name : this.matchup.team2?.name}`;
                 break;
             case "timer":
                 this.tooltipText = "Timer set";
