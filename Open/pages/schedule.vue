@@ -20,19 +20,19 @@
                             >
                                 {{ $t("open.schedule.all") }}
                             </div>
-                            <div 
+                            <div
                                 :class="{ 'open_filter__selected': view === 'UPCOMING' }"
                                 @click="view = 'UPCOMING'"
                             >
                                 {{ $t("open.schedule.upcoming") }}
                             </div>
-                            <div 
+                            <div
                                 :class="{ 'open_filter__selected': view === 'ONGOING' }"
                                 @click="view = 'ONGOING'"
                             >
                                 {{ $t("open.schedule.ongoing") }}
                             </div>
-                            <div 
+                            <div
                                 :class="{ 'open_filter__selected': view === 'PAST' }"
                                 @click="view = 'PAST'"
                             >
@@ -83,7 +83,7 @@
                                 {{ $t(`open.components.filter.sorts.${sort}`) }}
                             </div>
                             <div class="open_filter__separator" />
-                            <div 
+                            <div
                                 class="schedule__matchID_filter"
                                 style="cursor: default;"
                             >
@@ -246,10 +246,10 @@ const openModule = namespace("open");
 
                 {hid: "og:site_name", property: "og:site_name", content: "Resurrection Cup 2025"},
                 {hid: "og:title", property: "og:title", content: "Resurrection Cup 2025"},
-                {hid: "og:url", property: "og:url", content: `https://rescup.xyz${this.$route.path}`}, 
+                {hid: "og:url", property: "og:url", content: `https://rescup.xyz${this.$route.path}`},
                 {hid: "og:description", property: "og:description", content: "Resurrection Cup 2025 (also known as Resurrection Cup: Regulus Revolution), one of osu! standard's largest tournaments. Organized by Phreel and Hoaq, gathering some of the most skilled to the most strategic players from the community. All this to determine who's securing the winner's throne... until next year that is." || ""},
                 {hid: "og:image",property: "og:image", content: require("../../Assets/img/site/open/banner.png")},
-                
+
                 {name: "twitter:title", content: "Resurrection Cup 2025"},
                 {name: "twitter:description", content: "Resurrection Cup 2025 (also known as Resurrection Cup: Regulus Revolution), one of osu! standard's largest tournaments. Organized by Phreel and Hoaq, gathering some of the most skilled to the most strategic players from the community. All this to determine who's securing the winner's throne... until next year that is." || ""},
                 {name: "twitter:image", content: require("../../Assets/img/site/open/banner.png")},
@@ -260,7 +260,7 @@ const openModule = namespace("open");
     },
 })
 export default class Schedule extends Vue {
-    
+
     @State loggedInUser!: UserInfo | null;
     @openModule.State tournament!: Tournament | null;
     @openModule.State matchupList!: MatchupList[] | null;
@@ -285,7 +285,7 @@ export default class Schedule extends Vue {
         "BWS DIFF": (a, b) => !a.teams || !b.teams ? 0 : (Math.max(...a.teams.map(team => team.BWS)) - Math.min(...a.teams.map(team => team.BWS)) - (Math.max(...b.teams.map(team => team.BWS)) - Math.min(...b.teams.map(team => team.BWS)))),
     };
     currentSort: typeof this.sorts[number] = "DATETIME";
-    
+
     get selectedStage (): Stage | Round | null {
         return this.stageList[this.index] || null;
     }
@@ -302,7 +302,7 @@ export default class Schedule extends Vue {
             if (this.myStaff && (matchup.referee?.ID !== this.loggedInUser?.ID && matchup.streamer?.ID !== this.loggedInUser?.ID && !matchup.commentators?.some(comm => comm.ID === this.loggedInUser?.ID))) return false;
             if (this.hidePotentials && matchup.potentialFor) return false;
             if (this.searchValue && !(
-                matchup.matchID.toLowerCase().includes(this.searchValue.toLowerCase()) || 
+                matchup.matchID.toLowerCase().includes(this.searchValue.toLowerCase()) ||
                 matchup.ID.toString().includes(this.searchValue) ||
                 matchup.teams?.some(team => team.ID.toString().includes(this.searchValue)) ||
                 matchup.teams?.some(team => team.name.toLowerCase().includes(this.searchValue.toLowerCase())) ||
@@ -328,7 +328,7 @@ export default class Schedule extends Vue {
             this.$store.commit("open/setMatchups", []);
             return;
         }
-        
+
         this.loading = true;
         this.$store.commit("open/setMatchups", []);
 
@@ -365,7 +365,7 @@ export default class Schedule extends Vue {
                 }
             }
         }
-        this.index = this.stageList.findIndex((stageOrRound) => stageOrRound.abbreviation === "F");
+        this.index = this.stageList.findIndex((stageOrRound) => stageOrRound.abbreviation === "GF");
     }
 
     updated () {
@@ -401,7 +401,7 @@ export default class Schedule extends Vue {
     scrollBracket (event: Event) {
         if (!(event instanceof DragEvent))
             return;
-        
+
         event.dataTransfer!.dropEffect = "move";
         const bracketContainer = this.$refs.bracketContainer;
         const bracketScroll = this.$refs.bracketScroll;
