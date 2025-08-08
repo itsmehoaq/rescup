@@ -12,7 +12,7 @@
   <p align="center">
     A repository for Corsace's websites and primary services
     <br />
-    <a href="https://corsace.io"><strong>Main site »</strong></a>
+    <a href="https://vnoc.hoaq.works"><strong>Main site »</strong></a>
     <br />
     <br />
     <a href="https://discord.gg/Z6vEMsr">Discord</a>
