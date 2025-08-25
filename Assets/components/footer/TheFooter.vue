@@ -3,7 +3,7 @@
         class="footer"
         :class="`footer--${viewTheme} footer--${site}`"
     >
-        <slot/>
+        <slot />
 
         <language-switcher 
             v-if="site !== 'open'"
@@ -34,7 +34,7 @@ export default class TheFooter extends Vue {
 
     isSmall = false;
 
-    mounted() {
+    mounted () {
         if (process.client) {
             this.isSmall = window.innerWidth < 576;
             window.addEventListener("resize", () => {

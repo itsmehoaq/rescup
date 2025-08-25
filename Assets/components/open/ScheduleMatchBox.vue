@@ -1,5 +1,5 @@
 <template>
-    <div 
+    <div
         v-if="matchupSync"
         class="schedule_matchbox"
     >
@@ -107,50 +107,61 @@
             <div class="schedule_matchbox_teams__vs">
                 <div>VS</div>
                 <div>
-                    {{ !matchupSync.forfeit ? matchupSync.team1Score : matchupSync.team1Score < matchupSync.team2Score ? "FF" : 0 }}-{{ !matchupSync.forfeit ? matchupSync.team2Score : matchupSync.team1Score > matchupSync.team2Score ? "FF" : 0 }}
+                    {{
+                        !matchupSync.forfeit ? matchupSync.team1Score : matchupSync.team1Score < matchupSync.team2Score ? "FF" : 0
+                    }}-{{
+                        !matchupSync.forfeit ? matchupSync.team2Score : matchupSync.team1Score > matchupSync.team2Score ? "FF" : 0
+                    }}
                 </div>
             </div>
             <ScheduleMatchBoxTeam :team="matchupSync.teams?.[1]" />
         </div>
-        <div class="schedule_matchbox_links">
-            <IconButton
-                v-if="matchupSync.vod"
-                :link="matchupSync.vod"
-            >
-                <img 
-                    class="schedule_matchbox_links__button__twitch"
-                    src="../../img/social/twitch.svg"
+        <div class="schedule_matchbox_info">
+            <div class="schedule_matchbox_info__mp">
+                <a
+                    :href="`https://osu.ppy.sh/mp/${matchupSync.mp}`"
+                    :target="_blank"
+                    class="schedule_matchbox_info__icon_button"
                 >
-            </IconButton>
-            <div 
-                v-else
-                class="schedule_matchbox_links__placeholder"
-            />
-            <IconButton
-                v-if="matchupSync.mp"
-                :link="`https://osu.ppy.sh/mp/${matchupSync.mp}`"
-            >
-                <img 
-                    class="schedule_matchbox_links__button__twitch"
-                    src="../../img/site/open/link.svg"
-                >
-            </IconButton>
-            <div 
-                v-else
-                class="schedule_matchbox_links__placeholder"
-            />
-            <div
-                v-if="matchupSync.referee"
-                class="schedule_matchbox_links__staff"
-            >
-                REF: {{ matchupSync.referee.username }}
+                    <div class="icon_button__button--icon">
+                        <img
+                            class="schedule_matchbox_info__button__twitch"
+                            src="../../img/site/open/link.svg"
+                            alt=""
+                        >
+                    </div>
+                </a>
             </div>
-            <div
-                v-for="commentator in matchupSync.commentators"
-                :key="commentator.ID"
-                class="schedule_matchbox_links__staff"
-            >
-                {{ commentator.username }}
+            <div class="schedule_matchbox_info__staff">
+                <div class="schedule_matchbox_info__staff__section">
+                    <div
+                        v-if="matchupSync.referee"
+                        class="schedule_matchbox_info__staff__role"
+                    >
+                        REF:
+                    </div>
+                    <div
+                        v-if="matchupSync.referee"
+                        class="schedule_matchbox_info__staff__ref"
+                    >
+                        {{ matchupSync.referee.username }}
+                    </div>
+                </div>
+                <div class="schedule_matchbox_info__staff__section">
+                    <div
+                        v-if="matchupSync.commentators?.length"
+                        class="schedule_matchbox_info__staff__role"
+                    >
+                        COMMENTATOR:
+                    </div>
+                    <div
+                        v-for="commentator in matchupSync.commentators"
+                        :key="commentator.ID"
+                        class="schedule_matchbox_info__staff__commentators"
+                    >
+                        {{ commentator.username }}
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -162,7 +173,7 @@ import { namespace } from "vuex-class";
 
 import { MatchupList } from "../../../Interfaces/matchup";
 import { OpenStaffInfo, BaseStaffMember } from "../../../Interfaces/staff";
-import { TournamentRoleType, Tournament } from "../../../Interfaces/tournament"; 
+import { TournamentRoleType, Tournament } from "../../../Interfaces/tournament";
 
 import IconButton from "./IconButton.vue";
 import OpenMatchupTime from "./OpenMatchupTime.vue";
@@ -218,7 +229,7 @@ export default class ScheduleMatchBox extends Vue {
     @Watch("matchupSync", { immediate: true })
     onMatchupSyncChange () {
         this.matchReferee = this.matchupSync?.referee ?? null;
-        this.matchCommentators = [...(this.matchupSync?.commentators ?? [])];
+        this.matchCommentators = [ ...(this.matchupSync?.commentators ?? []) ];
         this.matchStreamer = this.matchupSync?.streamer ?? null;
     }
 
@@ -252,7 +263,7 @@ export default class ScheduleMatchBox extends Vue {
     async handleCommentatorSelection (staff: BaseStaffMember) {
         const index = this.matchCommentators.findIndex(c => c.ID === staff.ID);
 
-        if (index > -1)
+        if (index > - 1)
             this.matchCommentators.splice(index, 1);
         else
             this.matchCommentators.push(staff);
@@ -261,10 +272,13 @@ export default class ScheduleMatchBox extends Vue {
     }
 
     formatDate (date: Date): string {
-        const months = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
+        const months = [ "JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC" ];
         const day = date.getUTCDate();
         const monthIndex = date.getUTCMonth();
-        return `${months[monthIndex]} ${day < 10 ? "0" : ""}${day} (${date.toLocaleString("en-US", { weekday: "short", timeZone: "UTC" }).toUpperCase()})`;
+        return `${months[monthIndex]} ${day < 10 ? "0" : ""}${day} (${date.toLocaleString("en-US", {
+            weekday: "short",
+            timeZone: "UTC",
+        }).toUpperCase()})`;
     }
 }
 </script>
@@ -429,52 +443,80 @@ export default class ScheduleMatchBox extends Vue {
         &__side {
             flex: 1;
         }
-        
+
         &__vs {
             display: grid;
             width: 52px;
             height: 100%;
             justify-content: center;
             align-items: center;
-            
+
             font-size: 30px;
             font-weight: 700;
             font-stretch: condensed;
             line-height: 36px;
             letter-spacing: 0em;
             text-align: center;
-            
+
             color: white;
             background-color: $open-red;
         }
 
     }
 
-    &_links {
-        display: flex;
-        flex-wrap: wrap;
+    &_info {
+        display: grid;
+        grid-template-columns: 26px minmax(0, 1fr);
 
-        padding: 15px;
         border-left: 1px solid $open-red;
         justify-content: center;
         align-items: flex-start;
 
-        gap: 15px;
-        max-width: 125px;
+        min-width: 14rem;
 
-        &__placeholder {
-            width: 27px;
+        &__icon_button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+
+            background-color: $open-red;
+
+            &--icon {
+                width: 19.1px;
+                height: 21.07px;
+            }
+        }
+
+        &__mp {
+            width: 26px;
+            height: 100%;
+            border-right: 2px solid white;
         }
 
         &__staff {
+            height: 100%;
             color: white;
-            background-color: $open-red;
             font-weight: bold;
             font-stretch: condensed;
-            padding: 0 10px;
+            padding: 0.5rem 1rem;
+
             white-space: nowrap;
             text-overflow: ellipsis;
             overflow: hidden;
+
+            &__section {
+                display: flex;
+                flex-direction: column;
+                height: 50%;
+            }
+
+            &__role {
+                background-color: $open-red;
+                width: fit-content;
+                padding: 0.1rem 0.3rem;
+                margin-bottom: 0.1rem;
+            }
         }
     }
 }

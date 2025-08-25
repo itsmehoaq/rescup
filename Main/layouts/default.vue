@@ -183,7 +183,7 @@ export default class Default extends Vue {
 
     @State viewTheme!: "light" | "dark";
 
-    async mounted() {
+    async mounted () {
         await this.$store.dispatch("setViewTheme", "dark");
     }
 

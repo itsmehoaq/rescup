@@ -290,7 +290,7 @@ export default class Default extends Mixins(CentrifugeMixin) {
     devBanner = false;
     isSmall = false;
 
-    async mounted() {
+    async mounted () {
         if (process.client) {
             this.isSmall = window.innerWidth < 576;
             window.addEventListener("resize", () => {
@@ -311,12 +311,12 @@ export default class Default extends Mixins(CentrifugeMixin) {
         await this.initCentrifuge(`invitations:${this.loggedInUser.ID}`);
     }
 
-    handleData(ctx: ExtendedPublicationContext) {
+    handleData (ctx: ExtendedPublicationContext) {
         if (ctx.data.type === "invite")
             this.$store.commit("open/addInvite", ctx.data.team);
     }
 
-    hideBanner() {
+    hideBanner () {
         localStorage.setItem("devBanner", (Date.now() + 604800000).toString());
         this.devBanner = false;
     }

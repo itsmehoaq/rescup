@@ -1,5 +1,4 @@
 import { NuxtConfig } from "@nuxt/types";
-import * as fs from "fs";
 import { ISubSiteConfig, config } from "node-config-ts";
 import path from "path";
 
@@ -61,7 +60,7 @@ export default (subSite: string): Partial<NuxtConfig> => {
         },
         axios: {
             proxy: true,
-            host: "127.0.0.1",
+            host: "localhost",
             headers: {
                 common: {
                     // Allow secure cookies to be set by the `cookies` module
